@@ -91,3 +91,20 @@ return array(
 );
 ?>
 ```
+
+### Part 2:数据库操作和验证
+
+利用gii工具可以快速地生成对应的model来进行数据库的字段的验证，同时，我们也可以根据需求加入自己的验证。   
+
+例如：数据库的结构如下
+```mysql
+CREATE TABLE `t_qq_group` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增主键',
+  `qq_group_num` int(11) DEFAULT NULL COMMENT 'QQ群号',
+  `create_time` int(11) DEFAULT NULL COMMENT '创建时间',
+  `update_time` int(11) DEFAULT NULL COMMENT '更新时间',
+  `power_level` int(11) DEFAULT NULL COMMENT '权重',
+  `status` int(11) DEFAULT NULL COMMENT '状态',
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8
+```
