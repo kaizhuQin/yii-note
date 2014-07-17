@@ -2,7 +2,7 @@
 
 ### Part 1:main.php 配置文件
 
-```
+```php
 <?php
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
