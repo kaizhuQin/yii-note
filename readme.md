@@ -239,9 +239,11 @@ class QqGroup extends CActiveRecord
 + `boolean`：它是CBooleanValidator类的别名，验证属性的值是布尔值(true或false)。   
 	`array('isAdmin','boolean')`
 + `captcha`：它是CCaptchaValidator类的别名，验证属性的值等于一个显示的CAPTCHA(验证码)的值。   
-	`array('verifyCode','captcha')`  [详情][http://blog.csdn.net/yuhui_fish/article/details/7580770]
-+ `compare`：它是CCompareValidator类的别名，验证属性的值与另一个属性的值相等。
-+ `email`：它是CEmailValidator类的别名，验证属性的值为有一个有效的Email地址。
+	`array('verifyCode','captcha')`  [详情](http://blog.csdn.net/yuhui_fish/article/details/7580770)
++ `compare`：它是CCompareValidator类的别名，验证属性的值与另一个属性的值相等。   
+	`array('repeatPassword', 'compare', 'compareAttribute'=>'newPassword', 'message'=>'两次输入密码不同')`
++ `email`：它是CEmailValidator类的别名，验证属性的值为有一个有效的Email地址。   
+	`array('emailAdr','email','message'=>'邮箱格式不对')`
 + `default`：它是CDefaultValidator类的别名，验证属性的值为分配的默认值。
 + `exist`：它是CExistValidator类的别名，验证属性的值在表中的对应列中存在。
 + `file`：它是CFileValidator类的别名，验证属性的值包含上传的文件。
