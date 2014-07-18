@@ -219,3 +219,4 @@ class QqGroup extends CActiveRecord
 }
 
 ```
+`public function rules()` 主要描述对数据库字段的验证规则
