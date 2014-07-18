@@ -1,6 +1,8 @@
 ## 了解Yii过程的一些记录
+---
 
 ### Part 1:main.php 配置文件
+---
 
 ```php
 <?php
@@ -93,6 +95,7 @@ return array(
 ```
 
 ### Part 2:数据库操作和验证
+---
 
 利用gii工具可以快速地生成对应的model来进行数据库的字段的验证，同时，我们也可以根据需求加入自己的验证。   
 
@@ -227,7 +230,7 @@ class QqGroup extends CActiveRecord
 + 验证器别名是必须的;
 + 'on'=>'场景' 是可选的, 场景是在初始化某个具体的 CActiveRecord 类时通过构造函数设定的;
 
-Yii内置的验证器   
+#### Yii内置的验证器   
 ---
 + `boolean`：它是CBooleanValidator类的别名，验证属性的值是布尔值(true或false)。
 + `captcha`：它是CCaptchaValidator类的别名，验证属性的值等于一个显示的CAPTCHA(验证码)的值。
