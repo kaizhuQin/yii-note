@@ -252,10 +252,12 @@ class QqGroup extends CActiveRecord
 + `in`：它是CRangeValidator类的别名，验证属性值在一个预定义列表中。   
 	**`array('gender', 'in', 'range'=>array(0,1,2),'message'=>'不在系统限定的范围')`**
 + `length`：它是CStringValidator类的别名，验证属性值的长度在一个范围内。    
-	***`array('uname','length','min'=>6,'max'=>20,'message'=>'长度超出了限定值' );`*
+	**`array('uname','length','min'=>6,'max'=>20,'message'=>'长度超出了限定值' );`**
 + `match`：它是CRegularExpressionValidator类的别名，验证属性值匹配一个正则表达式。
-+ `numerical`：它是CNumberValidator类的别名，验证属性值是数字。
-+ `required`：它是CRequiredValidator类的别名，验证属性值必需有值，不能为空。
++ `numerical`：它是CNumberValidator类的别名，验证属性值是数字。   
+	**`array('icon','numerical','message'=>'不是整型')`**
++ `required`：它是CRequiredValidator类的别名，验证属性值必需有值，不能为空。    
+	**`array('uid','required','message'=>'不能为空');`**
 + `type`：它是CTypedValidator类的别名，验证属性值是一个指定的数据类型。
 + `unique`：它是CUniquedValidator类的别名，验证属性值在表中的对应列中是唯一的。
 + `url`：它是CUrlValidator类的别名，验证属性值是一个有效的URL。
