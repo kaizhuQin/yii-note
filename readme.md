@@ -219,4 +219,5 @@ class QqGroup extends CActiveRecord
 }
 
 ```
-`public function rules()` 主要描述对数据库字段的验证规则
+`public function rules()` 主要描述对数据库字段的验证规则。   
+* `array('qq_group_num','required','message'=>'不能为空')` *qq_group_num* 为数据表字段的名称，*required*是Yii内置的验证器。
