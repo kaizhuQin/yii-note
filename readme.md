@@ -219,5 +219,32 @@ class QqGroup extends CActiveRecord
 }
 
 ```
-`public function rules()` 主要描述对数据库字段的验证规则。   
-* `array('qq_group_num','required','message'=>'不能为空')` *qq_group_num* 为数据表字段的名称，*required*是Yii内置的验证器。
+
+`array('属性名1,属性名2', '验证器别名', 'on'=>'场景', '验证器属性'=>'值', '...'=>'...')`
+
++ array() 中前两个值是必须的，后面则是可选的，当然你要看具体验证器了;
++ 当有多个属性要使用同一个验证器时，可以写在同一条规则中，属性名使用英文逗号分隔;
++ 验证器别名是必须的;
++ 'on'=>'场景' 是可选的, 场景是在初始化某个具体的 CActiveRecord 类时通过构造函数设定的;
+
+Yii内置的验证器   
+---
++ `boolean`：它是CBooleanValidator类的别名，验证属性的值是布尔值(true或false)。
++ `captcha`：它是CCaptchaValidator类的别名，验证属性的值等于一个显示的CAPTCHA(验证码)的值。
++ `compare`：它是CCompareValidator类的别名，验证属性的值与另一个属性的值相等。
++ `email`：它是CEmailValidator类的别名，验证属性的值为有一个有效的Email地址。
++ `default`：它是CDefaultValidator类的别名，验证属性的值为分配的默认值。
++ `exist`：它是CExistValidator类的别名，验证属性的值在表中的对应列中存在。
++ `file`：它是CFileValidator类的别名，验证属性的值包含上传的文件。
++ `filter`：它是CFilterValidator类的别名，用过滤器转换属性的值。
++ `in`：它是CRangeValidator类的别名，验证属性值在一个预定义列表中。
++ `length`：它是CStringValidator类的别名，验证属性值的长度在一个范围内。
++ `match`：它是CRegularExpressionValidator类的别名，验证属性值匹配一个正则表达式。
++ `numerical`：它是CNumberValidator类的别名，验证属性值是数字。
++ `required`：它是CRequiredValidator类的别名，验证属性值必需有值，不能为空。
++ `type`：它是CTypedValidator类的别名，验证属性值是一个指定的数据类型。
++ `unique`：它是CUniquedValidator类的别名，验证属性值在表中的对应列中是唯一的。
++ `url`：它是CUrlValidator类的别名，验证属性值是一个有效的URL。
++ `date`： 它是CDateValidator类的别名，验证属性值是否是一个时间格式类型；
++ `safe`：它是CSafeValidator类的别名，将对应的属性值标记为安全，以使它们可以被大规模赋值；
++ `unsafe`：它是CUnsafeValidator类的别名，将对应的属性值标记为不安全，不能赋值；
