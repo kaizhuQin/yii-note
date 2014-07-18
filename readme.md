@@ -250,8 +250,9 @@ class QqGroup extends CActiveRecord
 + `file`：它是CFileValidator类的别名，验证属性的值包含上传的文件。
 + `filter`：它是CFilterValidator类的别名，用过滤器转换属性的值。
 + `in`：它是CRangeValidator类的别名，验证属性值在一个预定义列表中。   
-	**`array('status','in','')`**
-+ `length`：它是CStringValidator类的别名，验证属性值的长度在一个范围内。
+	**`array('gender', 'in', 'range'=>array(0,1,2),'message'=>'不在系统限定的范围')`**
++ `length`：它是CStringValidator类的别名，验证属性值的长度在一个范围内。    
+	***`array('uname','length','min'=>6,'max'=>20,'message'=>'长度超出了限定值' );`*
 + `match`：它是CRegularExpressionValidator类的别名，验证属性值匹配一个正则表达式。
 + `numerical`：它是CNumberValidator类的别名，验证属性值是数字。
 + `required`：它是CRequiredValidator类的别名，验证属性值必需有值，不能为空。
