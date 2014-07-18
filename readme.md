@@ -228,7 +228,7 @@ class QqGroup extends CActiveRecord
 + array() 中前两个值是必须的，后面则是可选的，当然你要看具体验证器了;
 + 当有多个属性要使用同一个验证器时，可以写在同一条规则中，属性名使用英文逗号分隔;
 + 验证器别名是必须的;
-+ 'on'=>'场景' 是可选的, 场景是在初始化某个具体的 CActiveRecord 类时通过构造函数设定的;
++ 'on'=>'场景' 是可选的, 场景是在初始化某个具体的 CActiveRecord 类时通过构造函数设定的;   
 	选择场景
 	如：`class Post extends CActiveRecord`
 	`$model=new Post('search');`
