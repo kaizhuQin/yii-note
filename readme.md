@@ -263,4 +263,39 @@ class QqGroup extends CActiveRecord
 + `url`：它是CUrlValidator类的别名，验证属性值是一个有效的URL。
 + `date`： 它是CDateValidator类的别名，验证属性值是否是一个时间格式类型；
 + `safe`：它是CSafeValidator类的别名，将对应的属性值标记为安全，以使它们可以被大规模赋值；
-+ `unsafe`：它是CUnsafeValidator类的别名，将对应的属性值标记为不安全，不能赋值；
++ `unsafe`：它是CUnsafeValidator类的别名，将对应的属性值标记为不安全，不能赋值；   
+
+#### 调用自己的验证规则   
+----
+```php
+class LoginForm extends CFormModel
+{
+    public $username;
+    public $password;
+    public $rememberMe=false;
+ 
+    private $_identity;
+ 
+    public function rules()
+    {
+        return array(
+            array('username, password', 'required'),
+            array('rememberMe', 'boolean'),
+            array('password', 'authenticate'),
+        );
+    }
+ 
+    public function authenticate($attribute,$params)
+    {
+        $this->_identity=new UserIdentity($this->username,$this->password);
+        if(!$this->_identity->authenticate())
+            $this->addError('password','错误的用户名或密码。');
+    }
+}
+```  
+
+#### 利用正则   
+---
+```php
+array('phone', 'match','pattern'=>'/^(\+?86-?)?(18|15|13|17)[0-9]{9}$/','message'=>'手机号码格式不正确')
+```
