@@ -239,16 +239,18 @@ class QqGroup extends CActiveRecord
 + `boolean`：它是CBooleanValidator类的别名，验证属性的值是布尔值(true或false)。   
 	**`array('isAdmin','boolean')`**
 + `captcha`：它是CCaptchaValidator类的别名，验证属性的值等于一个显示的CAPTCHA(验证码)的值。   
-	`array('verifyCode','captcha')`  [详情](http://blog.csdn.net/yuhui_fish/article/details/7580770)
+	**`array('verifyCode','captcha')`**  [详情](http://blog.csdn.net/yuhui_fish/article/details/7580770)
 + `compare`：它是CCompareValidator类的别名，验证属性的值与另一个属性的值相等。   
-	`array('repeatPassword', 'compare', 'compareAttribute'=>'newPassword', 'message'=>'两次输入密码不同')`
+	**`array('repeatPassword', 'compare', 'compareAttribute'=>'newPassword', 'message'=>'两次输入密码不同')`**
 + `email`：它是CEmailValidator类的别名，验证属性的值为有一个有效的Email地址。   
-	`array('emailAdr','email','message'=>'邮箱格式不对')`
+	**`array('emailAdr','email','message'=>'邮箱格式不对')`**
 + `default`：它是CDefaultValidator类的别名，验证属性的值为分配的默认值。
-+ `exist`：它是CExistValidator类的别名，验证属性的值在表中的对应列中存在。
++ `exist`：它是CExistValidator类的别名，验证属性的值在表中的对应列中存在。   
+	**`array('ip','exist','message'=>'{attribute}字段不存在')`**
 + `file`：它是CFileValidator类的别名，验证属性的值包含上传的文件。
 + `filter`：它是CFilterValidator类的别名，用过滤器转换属性的值。
-+ `in`：它是CRangeValidator类的别名，验证属性值在一个预定义列表中。
++ `in`：它是CRangeValidator类的别名，验证属性值在一个预定义列表中。   
+	**`array('status','in','')`**
 + `length`：它是CStringValidator类的别名，验证属性值的长度在一个范围内。
 + `match`：它是CRegularExpressionValidator类的别名，验证属性值匹配一个正则表达式。
 + `numerical`：它是CNumberValidator类的别名，验证属性值是数字。
