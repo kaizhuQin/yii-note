@@ -236,8 +236,10 @@ class QqGroup extends CActiveRecord
 
 #### Yii内置的验证器   
 ---
-+ `boolean`：它是CBooleanValidator类的别名，验证属性的值是布尔值(true或false)。
-+ `captcha`：它是CCaptchaValidator类的别名，验证属性的值等于一个显示的CAPTCHA(验证码)的值。
++ `boolean`：它是CBooleanValidator类的别名，验证属性的值是布尔值(true或false)。   
+	`array('isAdmin','boolean')`
++ `captcha`：它是CCaptchaValidator类的别名，验证属性的值等于一个显示的CAPTCHA(验证码)的值。   
+	`array('verifyCode','captcha')`  [详情][http://blog.csdn.net/yuhui_fish/article/details/7580770]
 + `compare`：它是CCompareValidator类的别名，验证属性的值与另一个属性的值相等。
 + `email`：它是CEmailValidator类的别名，验证属性的值为有一个有效的Email地址。
 + `default`：它是CDefaultValidator类的别名，验证属性的值为分配的默认值。
