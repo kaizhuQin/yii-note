@@ -302,3 +302,12 @@ class LoginForm extends CFormModel
 array('phone', 'match','pattern'=>'/^(\+?86-?)?(18|15|13|17)[0-9]{9}$/','message'=>'手机号码格式不正确')
 ```
 
+### 数据库操作相关   
+---
++ **`find()`**
+```php
+// find the first row satisfying the specified condition
+$post=Post::model()->find($condition,$params);
+// find the row with postID=10
+$post=Post::model()->find('postID=:postID', array(':postID'=>10));
+```
