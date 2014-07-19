@@ -345,6 +345,12 @@ user_field_data::model()->findBySql("select id from user_field_data where user_i
 ```php
 //根据主键来查找数据
 $post=Post::model()->findByPk($uid);
+```   
+
++ **`update()`**  
+```php
+// 根据条件更新数据
+$resCod = $model->updateAll($data,'id=:id',array(':id'=>2));
 ```
 
 #### CDbCriteria  构造数据库查询条件
