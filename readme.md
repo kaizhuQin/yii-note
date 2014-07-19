@@ -299,7 +299,7 @@ class LoginForm extends CFormModel
 #### 利用正则   
 ---
 ```php
-array('phone', 'match','pattern'=>'/^(\+?86-?)?(18|15|13|17)[0-9]{9}$/','message'=>'手机号码格式不正确')
+array('phone','match','pattern'=>'/^(\+?86-?)?(18|15|13|17)[0-9]{9}$/','message'=>'手机号码格式不正确')
 ```
 
 ### 数据库操作相关   
@@ -311,6 +311,8 @@ array('phone', 'match','pattern'=>'/^(\+?86-?)?(18|15|13|17)[0-9]{9}$/','message
 $post=Post::model()->find($condition,$params);
 // find the row with postID=10
 $post=Post::model()->find('postID=:postID', array(':postID'=>10));
+$dataPa1 = Post::model()->find("qq_group_num=:qq_group_num and status=:status",array(":qq_group_num"=>'330428605',":status"=>3));
+
 ```
 配合CDbCriteria   
 ```php
@@ -327,9 +329,9 @@ $post=Post::model()->findByAttributes($attributes,$condition,$params);
 ```   
 
 ```php
-$checkuser = user_field_data::model()->findByAttributes(
+$checkuser = Post::model()->findByAttributes(
     array('user_id' => Yii::app()->user->user_id, 'field_id' => $fieldid));
-$user_field_data = user_field_data::model()->findAllByAttributes(
+$user_data = Post::model()->findAllByAttributes(
     $attributes = array('user_id' => ':user_id'),
     $condition = "field_id in (:fields)",
     $params = array(':user_id' => Yii::app()->user->user_id, ':fields' => "$rule->dep_fields"));
@@ -337,7 +339,7 @@ $user_field_data = user_field_data::model()->findAllByAttributes(
 // find the first row using the specified SQL statement
 $post=Post::model()->findBySql($sql,$params);
 //例子
-user_field_data::model()->findBySql("select id from user_field_data where user_id = :user_id and field_id = :field_id", array(':user_id' => $userid,':field_id'=>$fieldid));
+Post::model()->findBySql("select id from user_field_data where user_id = :user_id and field_id = :field_id", array(':user_id' => $userid,':field_id'=>$fieldid));
 //此时回传的是一个对象
 ```
 
@@ -351,6 +353,34 @@ $post=Post::model()->findByPk($uid);
 ```php
 // 根据条件更新数据
 $resCod = $model->updateAll($data,'id=:id',array(':id'=>2));
+```
+
++ **`count()`**
+```php
+//public string count(mixed $condition='', array $params=array ( ))
+//满足指定的查询条件的行数
+$all = $model->count(); //返回全部的记录行数
+$count = $model->count('status=:status',array(':status'=>0)); //返回符合查询条件的记录行数
+```
+
++ **`deleteAll()`**
+```php
+//public string deleteAll(mixed $condition='', array $params=array ( ))
+//删除指定的查询条件的记录
+$count = $model->deleteAll('status=:status',array(':status'=>0));
+```
+
++ **`deleteByPk()`**
+```php
+//根据主键来删除指定的记录
+$count = $model->deleteByPk('21');
+```
+
++ **`save()`**
+```php
+//保存记录
+$model->attributes = $data;
+$model->save();
 ```
 
 #### CDbCriteria  构造数据库查询条件
@@ -380,8 +410,8 @@ $resCod = $model->updateAll($data,'id=:id',array(':id'=>2));
    $criteria->with = 'xxx';//调用relations   
    $criteria->limit =10;   //取1条数据，如果小于0，则不作处理  
    $criteria->offset =1;   //两条合并起来，则表示 limit 10 offset1,或者代表了。limit 1,10  
-   $criteria->order = 'xxx DESC,XXX ASC' ;//排序条件 
+   $criteria->order = 'xxx DESC,XXX ASC';//排序条件 
    $criteria->group = 'group 条件'; 
-   $criteria->having = 'having 条件 '; 
+   $criteria->having = 'having 条件'; 
    $criteria->distinct = FALSE;//是否唯一查询
 ```
