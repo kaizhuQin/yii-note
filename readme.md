@@ -306,7 +306,8 @@ array('phone', 'match','pattern'=>'/^(\+?86-?)?(18|15|13|17)[0-9]{9}$/','message
 ---
 + **`find()`**
 ```php
-// 查找满足指定条件的集合，并返回第一条
+// find()查找满足指定条件的集合，并返回第一条
+// findAll() 查找满足指定条件的集合，并返回结果集
 $post=Post::model()->find($condition,$params);
 // find the row with postID=10
 $post=Post::model()->find('postID=:postID', array(':postID'=>10));
@@ -325,7 +326,7 @@ $post=Post::model()->find($criteria); // $params is not needed
 $post=Post::model()->findByAttributes($attributes,$condition,$params);
 ```   
 
-```
+```php
 $checkuser = user_field_data::model()->findByAttributes(
     array('user_id' => Yii::app()->user->user_id, 'field_id' => $fieldid));
 $user_field_data = user_field_data::model()->findAllByAttributes(
@@ -338,4 +339,10 @@ $post=Post::model()->findBySql($sql,$params);
 //例子
 user_field_data::model()->findBySql("select id from user_field_data where user_id = :user_id and field_id = :field_id", array(':user_id' => $userid,':field_id'=>$fieldid));
 //此时回传的是一个对象
+```
+
++ **`findByPk()`**  
+```php
+//根据主键来查找数据
+$post=Post::model()->findByPk($uid);
 ```
