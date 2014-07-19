@@ -259,8 +259,10 @@ class QqGroup extends CActiveRecord
 + `required`：它是CRequiredValidator类的别名，验证属性值必需有值，不能为空。    
 	**`array('uid','required','message'=>'不能为空');`**
 + `type`：它是CTypedValidator类的别名，验证属性值是一个指定的数据类型。
-+ `unique`：它是CUniquedValidator类的别名，验证属性值在表中的对应列中是唯一的。
-+ `url`：它是CUrlValidator类的别名，验证属性值是一个有效的URL。
++ `unique`：它是CUniquedValidator类的别名，验证属性值在表中的对应列中是唯一的。   
+	`array('qq','unique','message'=>'{attribute}已经存在相同的了')`
++ `url`：它是CUrlValidator类的别名，验证属性值是一个有效的URL。   
+	`array('webSite','url','message'=>'{attribute}格式不对')`
 + `date`： 它是CDateValidator类的别名，验证属性值是否是一个时间格式类型；
 + `safe`：它是CSafeValidator类的别名，将对应的属性值标记为安全，以使它们可以被大规模赋值；
 + `unsafe`：它是CUnsafeValidator类的别名，将对应的属性值标记为不安全，不能赋值；   
@@ -299,3 +301,4 @@ class LoginForm extends CFormModel
 ```php
 array('phone', 'match','pattern'=>'/^(\+?86-?)?(18|15|13|17)[0-9]{9}$/','message'=>'手机号码格式不正确')
 ```
+
