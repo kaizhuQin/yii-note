@@ -29,6 +29,8 @@ array(
 
 public function actionTest()
 {
+	//加入缓存，key-value
+
 	//第一种方式
 	Yii::app()->cache->set('key','value',30);  //30s过期
 	Yii::app()->cache->get('key');
@@ -38,5 +40,8 @@ public function actionTest()
 	$cache=Yii::app()->cache;
 	$cache['var1']=$value1;  // 等价于: $cache->set('var1',$value1);
 	$value2=$cache['var2'];  // 等价于: $value2=$cache->get('var2');
+
+	//删除缓存
+	Yii:app()->cache->delete('name');
 }
 ```
