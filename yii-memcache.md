@@ -1,7 +1,6 @@
 ### Yii中使用Memcache
 ---
-Step one:   
-+ 在Memcached安装在主机上 
++ 将Memcached安装在主机上 
 + 配置yii的main.php   
 
 ```php
