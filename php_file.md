@@ -13,4 +13,12 @@ mode类型：
 `'a' `写入方式打开，将文件指针指向文件末尾。如果文件不存在则尝试创建之。   
 `'a+'` 读写方式打开，将文件指针指向文件末尾。如果文件不存在则尝试创建之。   
 `'x' `创建并以写入方式打开，将文件指针指向文件头。如果文件已存在，则 fopen() 调用失败并返回 FALSE。   
-`'x+'` 创建并以读写方式打开，将文件指针指向文件头。如果文件已存在，则 fopen() 调用失败并返回 FALSE。
+`'x+'` 创建并以读写方式打开，将文件指针指向文件头。如果文件已存在，则 fopen() 调用失败并返回 FALSE。   
+
+```php
+$handle = fopen('./log.txt','a+');
+foreach ($result as $key => $data) {
+$excel->addRow($data);
+fwrite($handle,$data[0]." ".$data[12]."\r\n");
+fclose($handle);
+```
