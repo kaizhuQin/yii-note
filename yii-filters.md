@@ -2,7 +2,7 @@
 
 过滤器可以定义为一个控制器类的方法，方法名必须以`filter`开头。例如，`filterAccessControl`方法定义了一个名为 accessControl 的过滤器:   
 
-```
+```php
 public function filterAccessControl($filterChain)
 {
     //code: do sth
@@ -14,7 +14,7 @@ public function filterAccessControl($filterChain)
 其中的`$filterChain`(过滤器链)是一个`CFilterChain`的实例，代表与所请求动作相关的过滤器列表。在过滤器方法中，我们可以调用`$filterChain->run()`以继续执行后续过滤器和动作。   
 
 过滤器也可以是一个`CFilter`或其子类的实例：   
-```
+```php
 class PerformanceFilter extends CFilter
 {
     protected function preFilter($filterChain)
@@ -31,7 +31,7 @@ class PerformanceFilter extends CFilter
 ```   
 
 要对动作应用过滤器，我们需要覆盖 CController::filters() 方法。此方法应返回一个过滤器配置数组。   
-```
+```php
 class PostController extends CController
 {
        public function filters()
