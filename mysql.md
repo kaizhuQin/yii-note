@@ -30,4 +30,4 @@ CHAR 类型用于定长字符串，并且必须在圆括号内用一个大小修
 ### mysql完整备份   
 ```
 mysqldump -h localhost -u root -p -P3306 --master-data=2 --single-transaction --opt xunso_165 > xunso_165_full.sql
-``
+```
